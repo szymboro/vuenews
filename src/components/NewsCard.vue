@@ -1,5 +1,6 @@
 <template>
   <section class="p-4 rounded-lg shadow-lg bg-gray-50 w-80">
+    <div class="save"><i class="fa fa-bookmark-o" aria-hidden="true"></i></div>
     <div class="h-90">
       <a
         class="text-xl font-bold text-center text-black-800 hover:text-purple-900 hover:underline"

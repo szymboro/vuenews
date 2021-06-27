@@ -1,8 +1,9 @@
 <template>
-  <main class="container flex-grow px-4 mx-auto my-12">
+  <main id="page-wrap" class="container flex-grow px-4 mx-auto my-12">
     <slot />
     <h2 class="mb-8 text-4xl font-bold text-center capitalize">
-      Guardian Sections (〜￣▽￣)〜
+      Guardian Sections <br />
+      (〜￣▽￣)〜
     </h2>
     <NewsFilter v-model="section" :fetch="fetchNews" />
     <br /><br />

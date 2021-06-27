@@ -1,20 +1,20 @@
 <template>
   <header>
-    <Slide>
+    <Push>
       <h1>VueNews <br />/ᐠ｡ꞈ｡ᐟ\</h1>
       <router-link to="/">News</router-link>
       <router-link to="/categories">Categories</router-link>
       <router-link to="/saved">For Later</router-link>
-    </Slide>
+    </Push>
     <router-view />
   </header>
 </template>
 
 <script>
-import { Slide } from "vue3-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide`
+import { Push } from "vue3-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide`
 export default {
   components: {
-    Slide, // Register your component
+    Push, // Register your component
   },
 };
 </script>

@@ -1,8 +1,9 @@
 <template>
-  <main class="container flex-grow px-4 mx-auto my-12">
+  <main id="page-wrap" class="container flex-grow px-4 mx-auto my-12">
     <slot />
     <h2 class="mb-8 text-4xl font-bold text-center capitalize">
-      Here are your latest news (ﾉ◕ヮ◕)ﾉ✨
+      Here are your latest news <br />
+      (ﾉ◕ヮ◕)ﾉ✨
     </h2>
     <NewsList v-if="!loading && !error" :posts="posts" />
     <div class="mt-40" v-if="loading">
