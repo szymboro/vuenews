@@ -19,6 +19,12 @@
       </h3>
       <p class="p-4 text-lg font-bold text-red-900">{{ error.message }}</p>
     </div>
+    <br /><br /><br />
+    <page>
+      <button @click="changeback">← Newer</button>
+      {{ page }} of {{ maxpage }}
+      <button @click="changenext">Older →</button>
+    </page>
   </main>
 </template>
 
@@ -34,21 +40,42 @@ export default {
   data() {
     return {
       section: "news",
+      page: 1,
+      maxpage: [],
       posts: [],
       loading: false,
       error: null,
     };
   },
   methods: {
+    changenext() {
+      if (this.page <= this.maxpage) {
+        this.page = this.page + 1;
+        this.fetchNews();
+      } else {
+      }
+    },
+    changeback() {
+      if (this.page > 1) {
+        this.page = this.page - 1;
+        this.fetchNews();
+      } else {
+      }
+    },
+
     async fetchNews() {
       try {
         this.error = null;
-        const url = `https://content.guardianapis.com/${this.section}?api-key=93df89fa-cfaf-48a5-979f-bcfa72389004`;
+        const url = `https://content.guardianapis.com/${this.section}?page=${this.page}&api-key=93df89fa-cfaf-48a5-979f-bcfa72389004`;
         const response = await axios.get(url);
         const results = response.data.response.results;
+        const pages = response.data.response.pages;
+        this.maxpage = pages;
         this.posts = results.map((post) => ({
+          currentPage: post.currentPage,
           title: post.webTitle,
           url: post.webUrl,
+          api_id: post.id,
           published_date: post.webPublicationDate,
         }));
       } catch (err) {

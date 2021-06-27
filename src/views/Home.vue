@@ -22,11 +22,9 @@
 
 <script>
 import axios from "axios";
-import NewsFilter from "../components/NewsFilter.vue";
 import NewsList from "../components/NewsList.vue";
 export default {
   components: {
-    NewsFilter,
     NewsList,
   },
   data() {
@@ -46,6 +44,8 @@ export default {
         this.posts = results.map((post) => ({
           title: post.webTitle,
           url: post.webUrl,
+          apiUrl: post.apiUrl,
+          api_id: post.id,
           published_date: post.webPublicationDate,
         }));
       } catch (err) {
@@ -74,5 +74,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
