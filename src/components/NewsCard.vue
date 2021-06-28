@@ -31,7 +31,6 @@
 
 <script>
 import { format } from "date-fns";
-import { v4 as uuidv4 } from "uuid";
 export default {
   name: "NewsCard",
   props: {
@@ -41,10 +40,12 @@ export default {
     },
   },
   methods: {
-    //this.post.api_id
     saveInCache() {
-      const title = "id:" + uuidv4();
-      localStorage.setItem(title, this.post.api_id);
+      var newslistnew = [];
+      newslistnew = JSON.parse(localStorage.getItem("news")) || [];
+      newslistnew.push(this.post.api_id);
+      this.$toastMsg(`Saved 🎉 ${this.post.title}`);
+      localStorage.setItem("news", JSON.stringify(newslistnew));
     },
     formatDate(strDate) {
       return format(new Date(strDate), "HH:mm do-MMM-yyyy");

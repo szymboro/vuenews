@@ -1,7 +1,6 @@
 #app {
   @apply flex flex-col min-h-screen overflow-x-hidden;
 }
-/*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */ /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 *,
 ::after,
 ::before {
